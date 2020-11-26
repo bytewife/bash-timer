@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source pomo.config
+
 ### TODO
 ###  - change default sound file via flag, prolly needa read name from a config file
 ###  - add more time options
@@ -28,7 +30,7 @@ TIME="${1:-30}"       # Set default value to 30.
 echo "Timing for $TIME min"
 TIME=$(($TIME*60))   # Multiply by 100. (()) denotes arithmetic
 
-SOUNDFILE="bell.wav"
+SOUNDFILE="$ALARMSOUND"
 
 ## Sleep for time
 sleep "$TIME"s
