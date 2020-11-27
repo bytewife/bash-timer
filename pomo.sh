@@ -29,7 +29,9 @@ shift $((OPTIND -1))  # Shift non-flag arguments by number of flags provided by 
 
 ## Set variables
 TIME="${1:-30}"       # Set default value to 30.
-echo "Timing for $TIME min"
+NOW="$(date +'%I:%M %p')"  # https://tldp.org/LDP/abs/html/timedate.html
+
+echo "($NOW) Timing for $TIME min"
 
 tickInMinutes "$TIME"
 
