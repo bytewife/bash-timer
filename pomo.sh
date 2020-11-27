@@ -1,6 +1,8 @@
 #!/bin/bash
 
 source pomo.config
+source overwrite.sh
+source functions.sh
 
 ### TODO
 ###  - change default sound file via flag, prolly needa read name from a config file
@@ -9,7 +11,8 @@ source pomo.config
 ## Testing
 # echo "First arg: $1"
 # echo "Second arg: $2"
-# echo "Count is $#" 
+# echo "Count is $#"
+
 
 ## Read flags - https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/
 while getopts ":ht" opt; do
@@ -28,13 +31,16 @@ shift $((OPTIND -1))  # Shift non-flag arguments by number of flags provided by 
 ## Set variables
 TIME="${1:-30}"       # Set default value to 30.
 echo "Timing for $TIME min"
-TIME=$(($TIME*60))   # Multiply by 100. (()) denotes arithmetic
+
+tickInMinutes "$TIME"
+
+# TIME=$(($TIME*60))   # (()) denotes arithmetic
 
 SOUNDFILE="$ALARMSOUND"
+ENDMESSAGE="$DONEMESSAGE"
 
-## Sleep for time
-sleep "$TIME"s
+echo "$ENDMESSAGE"
 
 ## Do something after sleep
-aplay "$SOUNDFILE"
+aplay --q "$SOUNDFILE"   # -q suppresses aplay message
 
