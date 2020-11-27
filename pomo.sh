@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source pomo.config
-source overwrite.sh
 source functions.sh
 
 ### TODO
