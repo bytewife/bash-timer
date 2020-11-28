@@ -16,7 +16,7 @@ tickInMinutes(){
         else
           overwrite "$i min left"
         fi
-        sleep 1s
+        sleep 1m
         let "i-=1"
 
     done
