@@ -40,7 +40,7 @@ tickInMinutes "$TIME"
 SOUNDFILE="$ALARMSOUND"
 ENDMESSAGE="$DONEMESSAGE"
 
-echo "$ENDMESSAGE"
+overwrite "$ENDMESSAGE"
 
 ## Do something after sleep
 aplay --q "$SOUNDFILE"   # -q suppresses aplay message

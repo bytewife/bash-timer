@@ -14,9 +14,9 @@ tickInMinutes(){
         if [ "$1" = "$i" ]; then
           echo "$i min left"
         else
-          overwrite "1 min left"
+          overwrite "$i min left"
         fi
-        sleep 1m
+        sleep 1s
         let "i-=1"
 
     done
